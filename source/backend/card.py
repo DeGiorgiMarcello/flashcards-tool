@@ -1,6 +1,6 @@
-from sqlalchemy import String, Boolean, Integer, Column, Sequence
+from sqlalchemy import String, Boolean, Integer, Column, Sequence, Date
 from sqlalchemy.orm import declarative_base
-
+from datetime import date
 from source.backend.db import engine
 Base = declarative_base()
 
@@ -14,6 +14,8 @@ class Card(Base):
     back_sub_text = Column(String)
     tag = Column(String)
     both_sides = Column(Boolean, default=False)
+    next_rep = Column(Date, default=date.today())
+    score = Column(Integer,default=0)
 
 
     def __repr__(self):

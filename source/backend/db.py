@@ -17,4 +17,6 @@ engine = create_engine(
 )
 
 
-Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Session = sessionmaker(
+    autocommit=False, autoflush=False, bind=engine, expire_on_commit=False
+)
